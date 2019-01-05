@@ -29,7 +29,8 @@ sql_show_all = "show tables;"
 # 返回所有的数据库内的表名
 table_names = [name["Tables_in_test"] for name in link_mysql_read(sql_show_all)]
 
-for table_name in table_names:
+for table_name in table_names[1:]:
     link_mysql_write(sql.format(table_name))
 
-print("ok")
+connection.close()
+print("all tables was processed")
