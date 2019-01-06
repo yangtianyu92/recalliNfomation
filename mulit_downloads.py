@@ -17,7 +17,8 @@ def get_html(url):
 
 def muliti_down(urls):
     muliti_pool = Pool(10)
-    print(muliti_pool.map(get_html, urls))
+    result_html_list = muliti_pool.map(get_html, urls)
+    return result_html_list
 
 
 """

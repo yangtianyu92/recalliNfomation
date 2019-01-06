@@ -20,7 +20,7 @@ def link_mysql_read(sql):
             cursor.execute(sql)
             result = cursor.fetchall()
     finally:
-        print('ok')
+        print("sql processed")
     return result
 
 
@@ -33,27 +33,19 @@ def link_mysql_write(sql):
     except:
         raise BufferError
     finally:
-        print('ok')
+        print("sql processed")
+
+
+# 显示所有表名
+def show_tables():
+    sql_show_all_fake = "show tables;"
+    table_names_fake = [name[list(name.keys())[0]] for name in link_mysql_read(sql_show_all_fake)]
+    return table_names_fake
 
 
 if __name__ == '__main__':
     sql_show_all = "show tables;"
-    table_names = [name["Tables_in_test"] for name in link_mysql_read(sql_show_all)]
-    print(table_names[1])
-    connection = pymysql.connect(host='localhost',
-                                 user='root',
-                                 password='root',
-                                 db='test',
-                                 charset='utf8mb4',
-                                 cursorclass=pymysql.cursors.DictCursor)
-    sql_test = """alter table agri_policy add (
-        `title` varchar(1200) DEFAULT NULL,
-        `product` varchar(300) DEFAULT NULL,
-        `brands` varchar(300) DEFAULT NULL,
-        `Manufacturer` varchar(300) DEFAULT NULL,
-        `Packageranddistributor` varchar(300) DEFAULT NULL,
-        `Numbers` int(15) DEFAULT NULL,
-        `html` MediumText DEFAULT NULL
-    );"""
-    link_mysql_write(sql_test)
+    table_names = [name[list(name.keys())[0]] for name in link_mysql_read(sql_show_all)]
+    print(table_names)
+
 
