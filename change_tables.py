@@ -25,6 +25,12 @@ alter table {} add (
 );
 """
 
+sql_html_content = """
+alter table {} add (
+    `htmlContent` MediumBlob DEFAULT NULL
+);
+"""
+
 sql_show_all = "show tables;"
 # 返回所有的数据库内的表名
 table_names = [name["Tables_in_test"] for name in link_mysql_read(sql_show_all)]
@@ -32,7 +38,7 @@ table_names = [name["Tables_in_test"] for name in link_mysql_read(sql_show_all)]
 
 if __name__ == '__main__':
     for table_name in table_names:
-        link_mysql_write(sql.format(table_name))
+        link_mysql_write(sql_html_content.format(table_name))
 
     connection.close()
     print("all tables was processed")

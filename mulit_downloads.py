@@ -12,7 +12,7 @@ urls = ["http://www.baidu.com", "http://www.sogou.com", "http://www.bing.com","h
 def get_html(url):
     response = requests.get(url)
     response.encoding = "utf-8"
-    return response.text
+    return response.text, url
 
 
 def muliti_down(urls):
