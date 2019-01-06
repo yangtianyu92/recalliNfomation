@@ -5,27 +5,34 @@
 import pymysql.cursors
 
 # 链接数据库
-connection = pymysql.connect(host='localhost',
-                             user='root',
-                             password='root',
-                             db='test',
-                             charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
 
 
 # 读取数据库
 def link_mysql_read(sql):
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='root',
+                                 db='test',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
     try:
         with connection.cursor() as cursor:
             cursor.execute(sql)
             result = cursor.fetchall()
     finally:
+        connection.close()
         print("sql processed")
     return result
 
 
 # 写入数据库或更改数据库
 def link_mysql_write(sql):
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='root',
+                                 db='test',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
     try:
         with connection.cursor() as cursor:
             cursor.execute(sql)
@@ -33,6 +40,7 @@ def link_mysql_write(sql):
     except:
         raise BufferError
     finally:
+        connection.close()
         print("sql processed")
 
 
