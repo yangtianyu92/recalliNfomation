@@ -3,7 +3,7 @@
 # @Time    : 2019/1/5 15:12
 # @Email    : yangtianyu92@126.com
 import pymysql.cursors
-
+import random
 # 链接数据库
 
 
@@ -51,9 +51,31 @@ def show_tables():
     return table_names_fake
 
 
-if __name__ == '__main__':
-    sql_show_all = "show tables;"
-    table_names = [name[list(name.keys())[0]] for name in link_mysql_read(sql_show_all)]
-    print(table_names)
+def make_url_list_all_random():
+    url_list_result = []
+    """
+    获取数据库内所有的url 相应的表名
+    :return:
+    """
+    table_names = show_tables()
+    sql_all_url = """select url from {};"""
+    for table in table_names:
+        print(table)
+        url_list = link_mysql_read(sql_all_url.format(table))
+        url_list_result.extend([(url["url"], table) for url in url_list])
+    random.shuffle(url_list_result)
+    return url_list_result
 
+
+# 把随机url插入
+def url_to_database(urls):
+    sql = """insert into random_urls (url, table_name) values ("{}", "{}");"""
+    for url in urls:
+        sql_insert = sql.format(url[0], url[1])
+        link_mysql_write(sql_insert)
+
+
+if __name__ == '__main__':
+    urls = make_url_list_all_random()
+    url_to_database(urls)
 
