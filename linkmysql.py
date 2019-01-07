@@ -80,7 +80,6 @@ def url_to_csv(urls):
             writer.writerow({"url": url[0], "table_name": url[1]})
 
 
-
 if __name__ == '__main__':
     urls = make_url_list_all_random()
     url_to_csv(urls)

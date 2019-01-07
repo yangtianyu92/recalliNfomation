@@ -26,9 +26,9 @@ def clear_html(html):
     return clear_soup
 
 
-def get_html(url):
+def get_html(url, encode="utf-8"):
     response = requests.get(url, headers=header)
-    response.encoding = "utf-8"
+    response.encoding = encode
     return response.text, url
 
 

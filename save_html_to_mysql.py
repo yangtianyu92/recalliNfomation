@@ -47,24 +47,34 @@ def get_all_url(file):
 
 # save html file to sql
 def save_html(urls):
-    index1 = 0
     index_begin = read_index()
-    urls = urls[index_begin:]
-    for index1, url in enumerate(urls):
-        response = get_html(url[0])
+    url_list = urls[index_begin:]
+    for index1, url_temp in enumerate(url_list):
+        if url_temp[1] == "heath_canada_recall":
+            continue
+        print(url_temp)
+        response = get_html(url_temp[0])
         sql = """update {0} set html = "{1}" where url="{2}";"""
         sql_content = """update {0} set htmlContent = "{1}" where url="{2}";"""
-        ch_base64 = base64.b64encode(response.encode('utf-8')).decode('utf-8')
-        ch_base64_sql = sql_content.format(url[1], ch_base64, response)
-        # link_mysql_write(ch_base64_sql)
-        ch = clear_html(response)
-        sql_raw = sql.format(url[1], pymysql.escape_string(ch), response)
-        # link_mysql_write(sql_raw)
-    save_index(index1)
+        ch_base64 = base64.b64encode(response[0].encode('utf-8')).decode('utf-8')
+        ch_base64_sql = sql_content.format(url_temp[1], ch_base64, url_temp[0])
+        link_mysql_write(ch_base64_sql)
+        ch = clear_html(response[0])
+        try:
+            sql_raw = sql.format(url_temp[1], pymysql.escape_string(ch), url_temp[0])
+            link_mysql_write(sql_raw)
+        except:
+            response = get_html(url_temp[0], encode="gbk")
+            ch = clear_html(response[0])
+            sql_raw = sql.format(url_temp[1], pymysql.escape_string(ch), url_temp[0])
+            link_mysql_write(sql_raw)
+        save_index(index_begin + index1 + 1)
+        print(index_begin + index1 + 1)
 
 
 if __name__ == '__main__':
-
+    urls = get_all_url("./urlLists/url_list1.csv")
+    save_html(urls=urls)
     '''    # 获取url列表
     sql = "select * from {};"
     c_r = link_mysql_read(sql=sql.format(table_name[6]))
