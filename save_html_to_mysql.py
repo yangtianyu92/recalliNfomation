@@ -24,13 +24,13 @@ def base64_decode(c):
 
 # 把当前行数记录在url_num_count.txt文件中，如果内存溢出，或者网络中断，可以继续下载
 def save_index(index):
-    with open('url_num_count.txt','w', encoding='utf-8') as f:
+    with open(r'C:\Users\888\PycharmProjects\recall0Information\urlLists\2018count.txt','w', encoding='utf-8') as f:
         f.write(str(index))
 
 
 # 读取index值
 def read_index():
-    with open('url_num_count.txt', 'r', encoding='utf-8') as f:
+    with open(r'C:\Users\888\PycharmProjects\recall0Information\urlLists\2018count.txt', 'r', encoding='utf-8') as f:
         number = f.read()
     return int(number)
 
@@ -73,7 +73,7 @@ def save_html(urls):
 
 
 if __name__ == '__main__':
-    urls = get_all_url("./urlLists/url_list1.csv")
+    urls = get_all_url("C:\\Users\\888\\PycharmProjects\\recall0Information\\urlLists\\url_list4_2018.csv")
     save_html(urls=urls)
     '''    # 获取url列表
     sql = "select * from {};"
