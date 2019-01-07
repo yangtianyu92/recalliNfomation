@@ -4,6 +4,7 @@
 # @Email    : yangtianyu92@126.com
 import pymysql.cursors
 import random
+import csv
 # 链接数据库
 
 
@@ -60,22 +61,27 @@ def make_url_list_all_random():
     table_names = show_tables()
     sql_all_url = """select url from {};"""
     for table in table_names:
-        print(table)
-        url_list = link_mysql_read(sql_all_url.format(table))
-        url_list_result.extend([(url["url"], table) for url in url_list])
+        if table == "random_urls":
+            pass
+        else:
+            url_list = link_mysql_read(sql_all_url.format(table))
+            url_list_result.extend([(url["url"], table) for url in url_list])
     random.shuffle(url_list_result)
     return url_list_result
 
 
-# 把随机url插入
-def url_to_database(urls):
-    sql = """insert into random_urls (url, table_name) values ("{}", "{}");"""
-    for url in urls:
-        sql_insert = sql.format(url[0], url[1])
-        link_mysql_write(sql_insert)
+# 把随机url和对应table名称插入csv文件中，3万行大约6M，压缩后30万行大约6M，上传下载速度可以接受
+def url_to_csv(urls):
+    with open("./urlLists/url_list1.csv", 'w', newline='',encoding='utf-8') as f:
+        fieldnames = ["url", "table_name"]
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for url in urls:
+            writer.writerow({"url": url[0], "table_name": url[1]})
+
 
 
 if __name__ == '__main__':
     urls = make_url_list_all_random()
-    url_to_database(urls)
+    url_to_csv(urls)
 
