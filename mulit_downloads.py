@@ -33,7 +33,7 @@ def get_html(url):
 
 
 def muliti_down(urls):
-    muliti_pool = Pool(10)
+    muliti_pool = Pool(processes=4)
     result_html_list = muliti_pool.map(get_html, urls)
     return result_html_list
 
