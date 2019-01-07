@@ -3,9 +3,10 @@
 # @Time    : 2019/1/5 21:32
 # @Email    : yangtianyu92@126.com
 from linkmysql import link_mysql_write, link_mysql_read, show_tables
-from mulit_downloads import muliti_down, clear_html
+from mulit_downloads import muliti_down, clear_html, get_html
 import pymysql.cursors
 import base64
+import csv
 
 # 读表插入数据库表内HTML字段当中
 table_name = show_tables()
@@ -21,8 +22,50 @@ def base64_decode(c):
     return base64.b64decode(c.encode("utf-8")).decode("utf-8")
 
 
+# 把当前行数记录在url_num_count.txt文件中，如果内存溢出，或者网络中断，可以继续下载
+def save_index(index):
+    with open('url_num_count.txt','w', encoding='utf-8') as f:
+        f.write(str(index))
+
+
+# 读取index值
+def read_index():
+    with open('url_num_count.txt', 'r', encoding='utf-8') as f:
+        number = f.read()
+    return int(number)
+
+
+# 读取csv中所有的url
+def get_all_url(file):
+    url_list = []
+    with open(file, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for index, row in enumerate(reader):
+            url_list.append((row["url"], row["table_name"]))
+    return url_list
+
+
+# save html file to sql
+def save_html(urls):
+    index1 = 0
+    index_begin = read_index()
+    urls = urls[index_begin:]
+    for index1, url in enumerate(urls):
+        response = get_html(url[0])
+        sql = """update {0} set html = "{1}" where url="{2}";"""
+        sql_content = """update {0} set htmlContent = "{1}" where url="{2}";"""
+        ch_base64 = base64.b64encode(response.encode('utf-8')).decode('utf-8')
+        ch_base64_sql = sql_content.format(url[1], ch_base64, response)
+        # link_mysql_write(ch_base64_sql)
+        ch = clear_html(response)
+        sql_raw = sql.format(url[1], pymysql.escape_string(ch), response)
+        # link_mysql_write(sql_raw)
+    save_index(index1)
+
+
 if __name__ == '__main__':
-    # 获取url列表
+
+    '''    # 获取url列表
     sql = "select * from {};"
     c_r = link_mysql_read(sql=sql.format(table_name[6]))
     url_list = [data["url"] for data in c_r]
@@ -42,3 +85,4 @@ if __name__ == '__main__':
             ch = clear_html(html[0])
             sql_raw = sql.format(table_name[6], pymysql.escape_string(ch), html[1])
             link_mysql_write(sql_raw)
+'''
