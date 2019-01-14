@@ -19,7 +19,7 @@ def base64_encode(c):
 
 # 解码
 def base64_decode(c):
-    return base64.b64decode(c.encode("utf-8")).decode("utf-8")
+    return base64.b64decode(c).decode("utf-8")
 
 
 # 把当前行数记录在url_num_count.txt文件中，如果内存溢出，或者网络中断，可以继续下载
