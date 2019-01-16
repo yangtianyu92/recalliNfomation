@@ -47,4 +47,7 @@ def extra_fda(response):
         result_dict = {}
     return result_list
 
-print(extra_fda(response))
+
+for dic in extra_fda(response):
+    sql = """insert into recall2018 (ThirdReport_Url, ThirdReport_Title, ThirdReport_CreateTime, 
+            ThirdReport_GetherTime, ) values()"""

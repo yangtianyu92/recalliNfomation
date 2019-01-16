@@ -41,7 +41,7 @@ def get_all_url(file):
     with open(file, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for index, row in enumerate(reader):
-            url_list.append((row["url"], row["table_name"]))
+            url_list.append((row["url"]))
     return url_list
 
 
@@ -49,15 +49,19 @@ def get_all_url(file):
 def save_html(urls):
     index_begin = read_index()
     url_list = urls[index_begin:]
-    for index1, url_temp in enumerate(url_list):
-        if url_temp[1] == "heath_canada_recall":
-            continue
+    for index1, url_temp in enumerate(url_list[:1]):
         print(url_temp)
-        response = get_html(url_temp[0])
-        sql = """update {0} set html = "{1}" where url="{2}";"""
-        sql_content = """update {0} set htmlContent = "{1}" where url="{2}";"""
+        response = get_html(url_temp)
+
+        sql = """update recall2018 set ThirdReport_Content = "{0}" where ThirdReport_Url="{1}";"""
+        # sql_content = """update {0} set htmlContent = "{1}" where url="{2}";"""
+
         ch_base64 = base64.b64encode(response[0].encode('utf-8')).decode('utf-8')
-        ch_base64_sql = sql_content.format(url_temp[1], ch_base64, url_temp[0])
+        ch_base64_sql = sql.format(ch_base64, url_temp)
+        link_mysql_write(ch_base64_sql)
+        '''
+        print(ch_base64_sql)
+        
         link_mysql_write(ch_base64_sql)
         ch = clear_html(response[0])
         try:
@@ -69,7 +73,7 @@ def save_html(urls):
             sql_raw = sql.format(url_temp[1], pymysql.escape_string(ch), url_temp[0])
             link_mysql_write(sql_raw)
         save_index(index_begin + index1 + 1)
-        print(index_begin + index1 + 1)
+        print(index_begin + index1 + 1)'''
 
 
 if __name__ == '__main__':
