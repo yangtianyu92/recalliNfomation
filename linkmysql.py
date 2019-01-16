@@ -13,7 +13,7 @@ def link_mysql_read(sql):
     connection = pymysql.connect(host='localhost',
                                  user='root',
                                  password='root',
-                                 db='test',
+                                 db='unionnew2018',
                                  charset='utf8mb4',
                                  cursorclass=pymysql.cursors.DictCursor)
     try:
@@ -31,7 +31,7 @@ def link_mysql_write(sql):
     connection = pymysql.connect(host='localhost',
                                  user='root',
                                  password='root',
-                                 db='test',
+                                 db='unionnew2018',
                                  charset='utf8mb4',
                                  cursorclass=pymysql.cursors.DictCursor)
     try:

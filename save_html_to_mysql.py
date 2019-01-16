@@ -73,7 +73,7 @@ def save_html(urls):
 
 
 if __name__ == '__main__':
-    urls = get_all_url("C:\\Users\\888\\PycharmProjects\\recall0Information\\urlLists\\url_list4_2018.csv")
+    urls = get_all_url("C:\\Users\\888\\PycharmProjects\\recall0Information\\urlLists\\recall2018.csv")
     save_html(urls=urls)
     '''    # 获取url列表
     sql = "select * from {};"

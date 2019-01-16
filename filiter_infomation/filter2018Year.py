@@ -28,8 +28,14 @@ def decode_result(raw):
 
 
 def read_result():
-    with open('./urlLists/url_list1.csv', 'r', newline='', encoding='utf-8') as f:
+    with open('../urlLists/url_list1.csv', 'r', newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
-        for row in reader:
-            sql = """select * from {0} where url={1};""".format(row["table_name"], row["url"])
-            link_mysql_read(sql)
+        rows = [row for row in reader]
+        for row in rows[:3]:
+            sql = """select * from {0} where url="{1}";""".format(row["table_name"], row["url"])
+            print(sql)
+            result = link_mysql_read(sql)
+            print(result)
+            print("2018" in result["创建时间"])
+
+read_result()
