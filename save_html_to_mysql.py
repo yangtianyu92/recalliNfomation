@@ -49,20 +49,17 @@ def get_all_url(file):
 def save_html(urls):
     index_begin = read_index()
     url_list = urls[index_begin:]
-    for index1, url_temp in enumerate(url_list[:1]):
+    for index1, url_temp in enumerate(url_list):
         print(url_temp)
         response = get_html(url_temp)
 
-        sql = """update recall2018 set ThirdReport_Content = "{0}" where ThirdReport_Url="{1}";"""
+        sql = """update recall2018 set ThirdReport_Raw = "{0}" where ThirdReport_Url="{1}";"""
         # sql_content = """update {0} set htmlContent = "{1}" where url="{2}";"""
 
         ch_base64 = base64.b64encode(response[0].encode('utf-8')).decode('utf-8')
         ch_base64_sql = sql.format(ch_base64, url_temp)
         link_mysql_write(ch_base64_sql)
         '''
-        print(ch_base64_sql)
-        
-        link_mysql_write(ch_base64_sql)
         ch = clear_html(response[0])
         try:
             sql_raw = sql.format(url_temp[1], pymysql.escape_string(ch), url_temp[0])
@@ -71,9 +68,9 @@ def save_html(urls):
             response = get_html(url_temp[0], encode="gbk")
             ch = clear_html(response[0])
             sql_raw = sql.format(url_temp[1], pymysql.escape_string(ch), url_temp[0])
-            link_mysql_write(sql_raw)
+            link_mysql_write(sql_raw)'''
         save_index(index_begin + index1 + 1)
-        print(index_begin + index1 + 1)'''
+        print(index_begin + index1 + 1)
 
 
 if __name__ == '__main__':

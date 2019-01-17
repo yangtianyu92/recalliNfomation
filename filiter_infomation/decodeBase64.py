@@ -5,20 +5,23 @@
 from linkmysql import link_mysql_read, link_mysql_write
 from save_html_to_mysql import base64_decode
 from bs4 import BeautifulSoup
+import re
 import requests
-from mulit_downloads import header
+from filiter_infomation.clearAttr import clear_atr
 
 sql_read_from_html = """
-select result from agri_hotspot limit 20; 
+select ThirdReport_Raw from recall2018 where ThirdReport_SiteName = "美国食品药品管理局网站" limit 1; 
 """
 
 list_content = link_mysql_read(sql_read_from_html)
 
-# for content in list_content:
-html_test = base64_decode(list_content[9]['htmlContent'])
+
+html_test = base64_decode(list_content[0]['ThirdReport_Raw'])
+
+article = re.findall('<div class="col-md-9">(.*)<div class="table-responsive">', html_test, re.S)
+print(article[0])
+
+print(clear_atr(article[0]))
 
 
-soup = BeautifulSoup(html_test, "lxml")
-
-print(soup.title.text)
-print(soup)
+# print(soup.find_all(class_=))
