@@ -8,4 +8,5 @@ import re
 def clear_atr(html):
     re1 = re.sub('<.*?>', '', html)
     re2 = re.sub('[\.\!\/_$%^*(\"\')—?【】“”！，。？、~@#￥…&（）\n\r;]', '', re1)
-    return re2
+    re3 = re.sub('nbsp', '', re2)
+    return re3

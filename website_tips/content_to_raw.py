@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/1/17 11:38
 # @Email    : yangtianyu92@126.com
-from linkmysql import  link_mysql_read, link_mysql_write
+from linkmysql import link_mysql_read, link_mysql_write
 
 sql_read = """ select ThirdReport_Content FROM unionnew2018.recall2018;"""
 
