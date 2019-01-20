@@ -18,7 +18,7 @@ with open('./urlLists/url_list1.csv', 'r',newline='', encoding='utf-8') as f:
             url_2018.append(row)
 """
 
-with open('./urlLists/criterion2018.csv', 'w', newline='', encoding='utf-8') as f:
+with open('./urlLists/recall2018.csv', 'w', newline='', encoding='utf-8') as f:
     fieldnames = ["url"]
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()

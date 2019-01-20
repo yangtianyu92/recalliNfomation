@@ -8,18 +8,15 @@ import pprint
 import json
 
 header_test = """
-view_name: search_news_alerts_alerts
-view_display_id: page_1
-view_args: 
-view_path: /views/ajax
-view_base_path: news-alerts/search/alerts
-view_dom_id: 966f44a754226ac64970313d77a168630987ef28e917c6ce1dea6cb7ccb50ffd
-pager_element: 0
-page: 17
-_drupal_ajax: 1
-ajax_page_state[theme]: fsa
-ajax_page_state[theme_token]: 
-ajax_page_state[libraries]: addtoany/addtoany,anchor_link/drupal.anchor_link,better_exposed_filters/auto_submit,better_exposed_filters/general,cookieconsent/cookieconsent-min,cookieconsent/settings,core/html5shiv,datalayer/behaviors,extlink/drupal.extlink,fsa/global,fsa_custom/add_to_any,fsa_custom/history_back,fsa_custom/page_print,fsa_es/accessibility,fsa_es/result_totals,fsa_gtm/data_layer.navref,fsa_gtm/data_layer.search,fsa_page_feedback/page_feedback,system/base,views/views.ajax,webform/webform.ajax,webform/webform.element.details.save,webform/webform.element.details.toggle,webform/webform.element.options,webform/webform.element.radios,webform/webform.form
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: __utmz=219145102.1547792022.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmc=219145102; WSS_FullScreenMode=false; __utma=219145102.177749145.1547792022.1547972235.1547987103.4; __utmt=1; __utmb=219145102.1.10.1547987103
+Host: www.foodstandards.gov.au
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
 """
 
 

@@ -53,7 +53,7 @@ def save_html(urls):
         print(url_temp)
         response = get_html(url_temp)
 
-        sql = """update criterion2018 set ThirdReport_Raw = "{0}" where ThirdReport_Url="{1}";"""
+        sql = """update recall2018 set ThirdReport_Raw = "{0}" where ThirdReport_Url="{1}";"""
         # sql_content = """update {0} set htmlContent = "{1}" where url="{2}";"""
 
         ch_base64 = base64.b64encode(response[0].encode('utf-8')).decode('utf-8')
@@ -74,7 +74,7 @@ def save_html(urls):
 
 
 if __name__ == '__main__':
-    urls = get_all_url("C:\\Users\\888\\PycharmProjects\\recall0Information\\urlLists\\criterion2018.csv")
+    urls = get_all_url("C:\\Users\\888\\PycharmProjects\\recall0Information\\urlLists\\recall2018.csv")
     save_html(urls=urls)
     '''    # 获取url列表
     sql = "select * from {};"

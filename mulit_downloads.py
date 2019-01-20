@@ -19,7 +19,20 @@ header = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image
            '__tins__1636283=%7B%22sid%22%3A%201547798445808%2C%20%22vd%22%3A%201%2C%20%22expires%22%3A%201547800245808%7D; '
            '__51cke__=; __51laig__=1; '
            'yunsuo_session_verify=36eb1e7c718ae2348b2f25df9fd57737',
- 'Host': 'news.foodmate.net',
+ 'Upgrade-Insecure-Requests': '1',
+ 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
+
+header2 = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+ 'Accept-Encoding': 'gzip, deflate',
+ 'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+ 'Cache-Control': 'max-age=0',
+ 'Connection': 'keep-alive',
+ 'Cookie': '__utmz=219145102.1547792022.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); '
+           '__utmc=219145102; WSS_FullScreenMode=false; '
+           '__utma=219145102.177749145.1547792022.1547972235.1547987103.4; '
+           '__utmt=1; __utmb=219145102.1.10.1547987103',
+ 'Host': 'www.foodstandards.gov.au',
  'Upgrade-Insecure-Requests': '1',
  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 '
                '(KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
@@ -35,7 +48,7 @@ def clear_html(html):
 
 
 def get_html(url, encode="utf-8"):
-    response = requests.get(url, headers=header)
+    response = requests.get(url, headers=header2)
     response.encoding = encode
     return response.text, url
 
