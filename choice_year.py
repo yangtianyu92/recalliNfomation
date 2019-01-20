@@ -6,7 +6,7 @@ import csv
 from linkmysql import link_mysql_read
 import random
 
-result = link_mysql_read("""SELECT * FROM criterion2018;""")
+result = link_mysql_read("""SELECT * FROM recall2018;""")
 print(result)
 
 """
