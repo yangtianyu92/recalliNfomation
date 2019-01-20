@@ -4,8 +4,8 @@
 # @Email    : yangtianyu92@126.com
 from filiter_infomation.template_filiter import template
 
-re_temp = "<div class=\"recall-body\">(.*?)</div>"
-website = "技术壁垒资源网"
+re_temp = '<div id="main">(.*?)<!-- end: main -->'
+website = "加拿大食品检验局网站"
 
 
 if __name__ == '__main__':

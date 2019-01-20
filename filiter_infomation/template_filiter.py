@@ -9,13 +9,13 @@ from filiter_infomation.clearAttr import clear_atr
 
 
 # 过滤模板
-def template(re_temp, website):
+def template(table, re_temp, website):
     sql_read_from_html = """
-    select ThirdReport_Raw,ThirdReport_Url from recall2018 where ThirdReport_SiteName = "{0}"; 
-    """.format(website)
+    select ThirdReport_Raw,ThirdReport_Url from {0} where ThirdReport_SiteName = "{1}"; 
+    """.format(table, website)
 
     change_sql = """
-    update recall2018 set ThirdReport_Content="{0}" where ThirdReport_Url="{1}";
+    update """ + table + """ set ThirdReport_Content="{0}" where ThirdReport_Url="{1}";
     """
 
     list_content = link_mysql_read(sql_read_from_html)
@@ -28,4 +28,11 @@ def template(re_temp, website):
             sql_c = change_sql.format(article, url)
             link_mysql_write(sql=sql_c)
         except:
-            pass
+            print(html_test)
+
+
+if __name__ == '__main__':
+    table = 'epidemic2018'
+    re_temp = '<div class="content" id="article">(.*?)<div class="b10 c_b">'
+    website = "食品资讯中心"
+    template(table=table, re_temp=re_temp, website=website)

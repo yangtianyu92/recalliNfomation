@@ -34,7 +34,7 @@ class AutoRun():
     def judge_right(self):
         with open(str(self.index_file), "r") as f:
             index = f.read()
-        if int(index) > 8645:
+        if int(index) > 1263:
             return False
         else:
             return True
