@@ -25,14 +25,15 @@ def template(table, re_temp, website):
         url = list_content[index]["ThirdReport_Url"]
         try:
             article = clear_atr(re.findall(re_temp, html_test, re.S)[0])
+            print(article)
             sql_c = change_sql.format(article, url)
             link_mysql_write(sql=sql_c)
         except:
-            print(html_test)
+            print("正则出现问题")
 
 
 if __name__ == '__main__':
-    table = 'epidemic2018'
-    re_temp = '<div class="content" id="article">(.*?)<div class="b10 c_b">'
-    website = "食品资讯中心"
+    table = 'recall2018'
+    re_temp = ' style="min-height:405px">(.*?)<div class="fenx_con">'
+    website = "中国技术性贸易措施网"
     template(table=table, re_temp=re_temp, website=website)

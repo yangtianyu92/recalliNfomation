@@ -28,4 +28,4 @@ for index, dic in enumerate(list_content):
         sql_c = change_sql.format(article, url)
         link_mysql_write(sql=sql_c)
     except:
-        pass
+        print(url)

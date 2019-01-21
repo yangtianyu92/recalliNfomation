@@ -13,8 +13,8 @@ Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
 Cache-Control: max-age=0
 Connection: keep-alive
-Cookie: __utmz=219145102.1547792022.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmc=219145102; WSS_FullScreenMode=false; __utma=219145102.177749145.1547792022.1547972235.1547987103.4; __utmt=1; __utmb=219145102.1.10.1547987103
-Host: www.foodstandards.gov.au
+Cookie: _trs_uv=jp7qzq0w_1800_d2xg; Hm_lvt_319ed1fe12668aac02ca463fb22bcb8d=1547777975,1547803024,1548002565; Hm_lpvt_319ed1fe12668aac02ca463fb22bcb8d=1548002565
+Host: tbt.sist.org.cn
 Upgrade-Insecure-Requests: 1
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
 """

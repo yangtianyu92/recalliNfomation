@@ -13,12 +13,10 @@ header = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image
  'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
  'Cache-Control': 'max-age=0',
  'Connection': 'keep-alive',
- 'Cookie': '__gads=ID=6efab4d2cfdbf3dd:T=1545724958:S=ALNI_MYm731z5NsV_HMjjpwJOsP1eYQLJw; '
-           'Hm_lvt_2aeaa32e7cee3cfa6e2848083235da9f=1545724899,1545724907,1547798446; '
-           'Hm_lpvt_2aeaa32e7cee3cfa6e2848083235da9f=1547798446; '
-           '__tins__1636283=%7B%22sid%22%3A%201547798445808%2C%20%22vd%22%3A%201%2C%20%22expires%22%3A%201547800245808%7D; '
-           '__51cke__=; __51laig__=1; '
-           'yunsuo_session_verify=36eb1e7c718ae2348b2f25df9fd57737',
+ 'Cookie': '_trs_uv=jp7qzq0w_1800_d2xg; '
+           'Hm_lvt_319ed1fe12668aac02ca463fb22bcb8d=1547777975,1547803024,1548002565; '
+           'Hm_lpvt_319ed1fe12668aac02ca463fb22bcb8d=1548002565',
+ 'Host': 'www.fsis.usda.gov',
  'Upgrade-Insecure-Requests': '1',
  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 '
                '(KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
@@ -48,7 +46,7 @@ def clear_html(html):
 
 
 def get_html(url, encode="utf-8"):
-    response = requests.get(url, headers=header2)
+    response = requests.get(url, headers=header)
     response.encoding = encode
     return response.text, url
 
