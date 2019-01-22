@@ -8,15 +8,13 @@ import pprint
 import json
 
 header_test = """
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
-Accept-Encoding: gzip, deflate
-Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
-Cache-Control: max-age=0
-Connection: keep-alive
-Cookie: _trs_uv=jp7qzq0w_1800_d2xg; Hm_lvt_319ed1fe12668aac02ca463fb22bcb8d=1547777975,1547803024,1548002565; Hm_lpvt_319ed1fe12668aac02ca463fb22bcb8d=1548002565
-Host: tbt.sist.org.cn
-Upgrade-Insecure-Requests: 1
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+accept-encoding: gzip, deflate, br
+accept-language: zh-CN,zh;q=0.9,en;q=0.8
+cache-control: max-age=0
+cookie: __cfduid=d10182ee06f7ed97a0d41d5ebad1203b11547978364; _ga=GA1.3.981128867.1547978302; _gid=GA1.3.754703001.1547978302; cookieconsent_dismissed=yes; _dc_gtm_UA-54078849-1=1
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
 """
 
 

@@ -6,7 +6,7 @@ import csv
 from linkmysql import link_mysql_read
 import random
 
-result = link_mysql_read("""SELECT * FROM recall2018 where ThirdReport_SiteName="美国农业部食品安全检验局";""")
+result = link_mysql_read("""SELECT * FROM recall2018 where ThirdReport_SiteName="英国食品标准局";""")
 print(result)
 
 """
