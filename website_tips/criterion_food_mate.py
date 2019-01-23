@@ -10,12 +10,7 @@ header = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image
  'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
  'Cache-Control': 'max-age=0',
  'Connection': 'keep-alive',
- 'Cookie': '__gads=ID=6efab4d2cfdbf3dd:T=1545724958:S=ALNI_MYm731z5NsV_HMjjpwJOsP1eYQLJw; \
- Hm_lvt_2aeaa32e7cee3cfa6e2848083235da9f=1545724899,1545724907,1547798446,1548218310; \
- __51cke__=; yunsuo_session_verify=f26b4bb6885d0a600716ca313c595211; \
- Hm_lpvt_2aeaa32e7cee3cfa6e2848083235da9f=1548218853; \
- __tins__1636283=%7B%22sid%22%3A%201548218310024%2C%20%22vd%22%3A%\
- 2011%2C%20%22expires%22%3A%201548220653344%7D; __51laig__=11',
+ 'Cookie': '',
  'Host': 'news.foodmate.net',
  'Upgrade-Insecure-Requests': '1',
  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 '

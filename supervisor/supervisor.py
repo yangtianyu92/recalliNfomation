@@ -5,7 +5,7 @@
 import subprocess, time, sys
 
 # （单位：秒）
-TIME = 15
+TIME = 3
 
 CMD = "C:\\Users\\888\\PycharmProjects\\recall0Information\\save_html_to_mysql.py"
 
@@ -28,7 +28,7 @@ class AutoRun():
                 self.poll = self.p.poll()  # 判断程序进程是否存在，None：表示程序正在运行 其他值：表示程序已退出
                 if self.poll is None:
                     print("运行正常")
-                    if self.queue_count > 3 * sleep_time:
+                    if self.queue_count > 15 * sleep_time:
                         self.queue_count = 0
                         self.p.kill()
                         self.run()
@@ -43,7 +43,7 @@ class AutoRun():
     def judge_right(self):
         with open(str(self.index_file), "r") as f:
             index = f.read()
-        if int(index) > 154:
+        if int(index) > 1842:
             return False
         else:
             return True

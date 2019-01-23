@@ -6,7 +6,7 @@ import csv
 from linkmysql import link_mysql_read
 import random
 
-result = link_mysql_read("""SELECT * FROM criterion2018 where ThirdReport_SiteName="中国农业贸易政策";""")
+result = link_mysql_read("""SELECT * FROM criterion2018 where ThirdReport_SiteName="食品伙伴网";""")
 print(result)
 
 """
@@ -22,7 +22,7 @@ with open('./urlLists/criterion2018.csv', 'w', newline='', encoding='utf-8') as 
     fieldnames = ["url"]
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
-    sum_dic = [dic for dic in result]
+    sum_dic = list(set([dic["ThirdReport_Url"] for dic in result]))
     random.shuffle(sum_dic)
     for dic in sum_dic:
-        writer.writerow({"url": dic["ThirdReport_Url"]})
+        writer.writerow({"url": dic})
