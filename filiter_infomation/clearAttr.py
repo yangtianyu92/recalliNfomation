@@ -10,4 +10,5 @@ def clear_atr(html):
     re1 = re.sub('<.*?>', '', re_script)
     re2 = re.sub('[\.\!\/_$%^*(\"\')—?【】“”！，。？、~@#￥…&（）\n\r;]', '', re1)
     re3 = re.sub('nbsp', '', re2)
-    return re3
+    re4 = re.sub('<style.*?style>', '', re3)
+    return re4
