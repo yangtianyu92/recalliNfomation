@@ -6,7 +6,7 @@ import csv
 from linkmysql import link_mysql_read
 import random
 
-result = link_mysql_read("""SELECT * FROM recall2018 where ThirdReport_SiteName="英国食品标准局";""")
+result = link_mysql_read("""SELECT * FROM criterion2018 where ThirdReport_SiteName="中国农业贸易政策";""")
 print(result)
 
 """
@@ -18,7 +18,7 @@ with open('./urlLists/url_list1.csv', 'r',newline='', encoding='utf-8') as f:
             url_2018.append(row)
 """
 
-with open('./urlLists/recall2018.csv', 'w', newline='', encoding='utf-8') as f:
+with open('./urlLists/criterion2018.csv', 'w', newline='', encoding='utf-8') as f:
     fieldnames = ["url"]
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()

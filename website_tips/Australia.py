@@ -46,6 +46,6 @@ for i in range(1, 22):
         ThirdReport_GetherTime, ThirdReport_SiteName, ThirdReport_InfoType) values
         ("{0}", "{1}", "{2}", "{3}", "{4}", "{5}");
         """
-        if "2019" in ct[j]:
+        if "2018" in ct[j]:
             a1 = sql_raw.format(titles[j], hrefs[j],  ct[j], datetime_now, website_name, "召回")
             link_mysql_write(a1)

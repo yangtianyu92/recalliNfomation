@@ -8,13 +8,15 @@ import pprint
 import json
 
 header_test = """
-accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
-accept-encoding: gzip, deflate, br
-accept-language: zh-CN,zh;q=0.9,en;q=0.8
-cache-control: max-age=0
-cookie: __cfduid=d10182ee06f7ed97a0d41d5ebad1203b11547978364; _ga=GA1.3.981128867.1547978302; _gid=GA1.3.754703001.1547978302; cookieconsent_dismissed=yes; _dc_gtm_UA-54078849-1=1
-upgrade-insecure-requests: 1
-user-agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: yfx_c_g_u_id_10004084=_ck18122516034319545135158710733; insert_cookie=77459145; yfx_f_l_v_t_10004084=f_t_1545725023940__r_t_1548213445876__v_t_1548213445876__r_c_4
+Host: www.mczx.agri.cn
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
 """
 
 
