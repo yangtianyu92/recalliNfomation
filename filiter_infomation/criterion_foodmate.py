@@ -7,8 +7,8 @@ from filiter_infomation.template_filiter import template
 
 re_temp = '<div class="content" id="article">(.*?)<div class="wzsj">'
 
-website = "食品伙伴网"
+website = "食品咨询中心"
 
 
 if __name__ == '__main__':
-    template(table="criterion2018", re_temp=re_temp, website=website)
+    template(table="epidemic2018", re_temp=re_temp, website=website)

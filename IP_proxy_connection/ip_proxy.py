@@ -14,6 +14,7 @@ class GetProxy:
     @staticmethod
     def certify_ip(ips):
         for ip in ips:
+            pass
 
 
     def phrase_ip(self, response):
