@@ -11,7 +11,7 @@ header = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image
  'Cache-Control': 'max-age=0',
  'Connection': 'keep-alive',
  'Cookie': '',
- 'Host': 'news.foodmate.net',
+ 'Host': 'www.cdc.gov',
  'Upgrade-Insecure-Requests': '1',
  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 '
                '(KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
