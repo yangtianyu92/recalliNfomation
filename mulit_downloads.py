@@ -69,11 +69,10 @@ def get_html(url, encode="utf-8"):
     try:
         response = requests.get(url, headers=header, proxies=proxy_dict, timeout=5)
     except:
-        
         raise TimeoutError
 
     response.encoding = encode
-    print(clear_html(response.text)[200:])
+    print(clear_html(response.text)[400:])
     return response.text, url
 
 
