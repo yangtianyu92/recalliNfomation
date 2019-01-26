@@ -29,6 +29,8 @@ class GetProxy:
             time.sleep(300)
 
 
+class IpCertificate:
+
 if __name__ == '__main__':
     gp = GetProxy()
     gp.ip_pool()
